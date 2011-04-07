@@ -12,9 +12,17 @@ describe Client do
 	@client.address.should == "Laimes al. 10"
     end
 
-    it "should set surname" do
+    it "should set name" do
         @client.set_name("Agne")
         @client.name.should == "Agne"
+    end
+        it "should set surname" do
+        @client.set_surename("Piliakalniaite")
+        @client.surename.should == "Piliakalniaite"
+    end
+        it "should set surname" do
+        @client.set_address("Zalioji al. 56")
+        @client.name.should == "Zalioji al. 56"
     end
    # it "should set address" do
     #    @client.surname = "Laimes al.34, Vilnius"
