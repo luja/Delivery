@@ -8,7 +8,7 @@ describe Packages_list do
         @packages_list = Packages_list.new
         @package = Package.new
     end
-
+    #2
     it "should be empty list when created" do
         @packages_list.packages.should be_empty
     end
