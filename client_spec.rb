@@ -4,10 +4,12 @@ require './client'
 
 describe Client do
     before :each do
-      @client = Client.new
+      @client = Client.new("Jonas", "Jonaitis", "Laimes al. 10")
     end
-    it "should initially have nil" do
-        @client.name.should == nil
+    it "should initialize with name, surename, and address" do
+        @client.name.should == "Jonas"
+	@client.surename.should == "Jonaitis"
+	@client.address.should == "Laimes al. 10"
     end
   #  it "should set surname" do
    #     @client.surname = "Jonas"
