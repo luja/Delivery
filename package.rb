@@ -1,6 +1,7 @@
 #package.rb
 
 PRICE_COF = 0.3
+PRICE = 0.5
 PACKAGE_STATE = ["Registered", "Given to curier","Delivered"]
 
 class Package

@@ -46,7 +46,13 @@ describe Package do
     #++
     it "should count price" do
       @package.set_weight(1000)
-      @package.count_price == 300
+      @package.count_price 
+      @package.price.should == 300
+    end
+    it "should set price even if package weight 0 g" do
+      @package.set_weight(0)
+      @package.count_price
+      @package.price.should == PRICE
     end
     it "should set a letter type if weight is under 300 g" do
       @package.set_weight(230)
