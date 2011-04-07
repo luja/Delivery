@@ -1,14 +1,14 @@
 #package.rb
 
 PRICE_COF = 0.3
-PACKAGE_STATE = "Registered", "Given to curier","Delivered"
+PACKAGE_STATE = ["Registered", "Given to curier","Delivered"]
 
 class Package
 
     attr_accessor :weight
     attr_accessor :state 
     attr_accessor :price
-
+    
     def initialize(weight = nil, state = nil)
       @weight = weight
       @state = PACKAGE_STATE[0]
@@ -26,5 +26,7 @@ class Package
     def count_price()
       @price = PRICE_COF * @weight
     end
-    
+    def next_state()
+      @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]
+    end
 end
