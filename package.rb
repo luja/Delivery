@@ -28,7 +28,7 @@ class Package
     end
     
     def count_price()
-      @price = PRICE_COF * @weight
+      @price = PRICE + PRICE_COF * @weight
     end
     def next_state()
       @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]

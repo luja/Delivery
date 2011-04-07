@@ -47,7 +47,7 @@ describe Package do
     it "should count price" do
       @package.set_weight(1000)
       @package.count_price 
-      @package.price.should == 300
+      @package.price.should == 300.5
     end
     it "should set price even if package weight 0 g" do
       @package.set_weight(0)
