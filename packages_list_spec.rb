@@ -18,4 +18,9 @@ describe Packages_list do
         @packages_list.should have(1).packages
     end
 
+    it "package of packages_list should be Package" do
+        @packages_list.add_package(@package)
+        @packages_list.packages.first.should be_instance_of(Package)
+    end
+
 end

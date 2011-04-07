@@ -9,8 +9,8 @@ class Packages_list
     def initialize()
        @packages = []
     end
-    def add_package(package)
-        
+    def add_package(packg)
+        package = Package.new()
         @packages << package
     end
 end
