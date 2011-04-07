@@ -4,7 +4,9 @@ require './client'
 
 describe Client do
     it "initializes" do
-        person = Person.new
+        client = Client.new
     end
+    #it "should set name" do
+     #   person =
 end
 
