@@ -16,12 +16,23 @@ describe Package do
     it "should set to first state when initialized" do
         @package.state.should == "Registered"
     end
-    it "should change state in a sequence" do
+    
+    it "should initialize with state registered" do
       @package.state.should == "Registered"
+    end
+    it "should change state registered into given to curier" do
       @package.next_state()
       @package.state.should == "Given to curier"
+    end
+    it "should change state Given to curier into registered" do
+      @package.state = "Given to curier"
       @package.next_state()
       @package.state.should == "Delivered"
+    end
+    it "should not change state delivered" do
+    @package.state = "Delivered"
+    @package.next_state()
+    @package.state.should == "Delivered"
     end
     it "should set weight" do
       @package.set_weight(350)
@@ -48,5 +59,9 @@ describe Package do
     it "should set a small package type if weight is above 300 and under 800 g" do
       @package.set_weight(750)
       @package.type.should == "small package"
+    end
+     it "should set a big package type if weight is above 1500 g" do
+      @package.set_weight(2000)
+      @package.type.should == "big package"
     end
 end 
