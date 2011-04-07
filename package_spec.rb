@@ -1,23 +1,41 @@
 #package_spec.rb
 
+
+
 require './package'
 
 describe Package do
     before :each do
-      @package = Package.new(100, "Registered")
+      @package = Package.new(100)
     end
-    it "should initialize with weight and state" do
+    it "should initialize with weigh and price" do
       @package.weight.should == 100
-      @package.state.should == "Registered"
+      @package.price.should == 0
     end
-    it "should set_weight" do
+    #++
+    it "should set to first state when initialized" do
+        @package.state.should == "Registered"
+    end
+    it "should change state in a sequence" do
+      @package.state.should == "Registered"
+      @package.next_state()
+      @package.state.should == "Given to curier"
+      @package.next_state()
+      @package.state.should == "Delivered"
+    end
+    it "should set weight" do
       @package.set_weight(350)
       @package.weight.should == 350
     end 
 
-    it "should set_state" do
+    it "should set state" do
       @package.set_state("Delivered")
       @package.state.should == "Delivered"
     end 
+    #++
+    it "should count price" do
+      @package.set_weight(1000)
+      @package.count_price == 300
+    end
 
 end 
