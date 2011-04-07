@@ -37,5 +37,12 @@ describe Package do
       @package.set_weight(1000)
       @package.count_price == 300
     end
-
+    it "should set a letter type if weight is under 300 g" do
+      @package.set_weight(300)
+      @package.type.should == "letter"
+    end
+    it "should set a small package type if weight is above 300 and under 800 g" do
+      @package.set_weight(300)
+      @package.type.should == "small package"
+    end
 end 
