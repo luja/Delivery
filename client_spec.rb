@@ -14,7 +14,7 @@ describe Client do
 
     it "should set surname" do
         @client.set_name("Agne")
-        @client.name.should = "Agne"
+        @client.name.should == "Agne"
     end
    # it "should set address" do
     #    @client.surname = "Laimes al.34, Vilnius"

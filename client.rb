@@ -13,6 +13,9 @@ class Client
 	@address = address
 	#@id = nil
     end
+    def set_name(name)
+        @name = name
+    end
     
 end
 
