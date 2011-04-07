@@ -11,16 +11,12 @@ class Package
 	#@address = address
 	#@id = nil
     end
-#    def set_name(name)
- #       @name = name
-  #  end
+    def set_weight(weight)
+        @weight = weight
+    end
     
-   # def set_surename(surename)
-    #    @surename = surename
-    #end
-  
-   # def set_address(address)
-    #    @address = address
-    #end
+    def set_state(state)
+        @state = state
+    end
     
 end
