@@ -14,26 +14,34 @@ class Package
       @weight = weight
       @state = PACKAGE_STATE[0]
       @price = 0
-      set_type
-      #@address = address
-      #@id = nil
+      @type = nil
+  
     end
     def set_weight(weight)
       @weight = weight
+      set_type
     end
     
     def set_state(state)
       @state = state
     end
+    
     def count_price()
       @price = PRICE_COF * @weight
     end
     def next_state()
       @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]
     end
-    def set_type
-      if @weight < 300
+
+    def set_type()
+      if @weight <= 300
         @type = "letter"
+        elsif @weight <= 800
+          @type = "small package"
+          elsif @weight <= 1500
+            @type = "medium package"
+          else @type = "big package" 
       end
     end
+
 end
