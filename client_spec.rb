@@ -22,7 +22,7 @@ describe Client do
     end
         it "should set surname" do
         @client.set_address("Zalioji al. 56")
-        @client.name.should == "Zalioji al. 56"
+        @client.address.should == "Zalioji al. 56"
     end
     
 end
