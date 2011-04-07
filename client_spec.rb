@@ -24,8 +24,6 @@ describe Client do
         @client.set_address("Zalioji al. 56")
         @client.name.should == "Zalioji al. 56"
     end
-   # it "should set address" do
-    #    @client.surname = "Laimes al.34, Vilnius"
-    #end
+    
 end
 

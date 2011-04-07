@@ -17,5 +17,13 @@ class Client
         @name = name
     end
     
+    def set_surename(surename)
+        @surename = surename
+    end
+  
+    def set_address(address)
+        @address = address
+    end
+    
 end
 
