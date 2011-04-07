@@ -31,6 +31,9 @@ class Package
     end
     def next_state()
       @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]
+      if @state == nil 
+        @state = "Delivered"
+      end
     end
 
     def set_type()
