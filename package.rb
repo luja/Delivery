@@ -5,6 +5,8 @@ PRICE = 0.5
 PACKAGE_STATE = ["Registered", "Given to curier","Delivered"]
 PACKAGE_TYPE = ["Letter", "Small package", "Medium package", "Big package"]
 
+require './package.rb'
+
 class Package
 
   @weight
@@ -30,7 +32,9 @@ class Package
     self.set_type
     self.count_price
   end
-
+  def set_id (id)
+    @id = id
+  end
   def set_weight(weight)
     @weight = weight
     self.set_type
@@ -50,7 +54,14 @@ class Package
       @state = PACKAGE_STATE[2]
     end
   end
-
+  def set_sender(sender)
+    if sender.kind_of? Client
+    @sender = sender
+    end
+  end
+  def set_receiver(receiver)
+    @receiver = receiver
+  end
   def set_type()
     if @weight <= 300
       @type = PACKAGE_TYPE[0]

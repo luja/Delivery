@@ -3,7 +3,7 @@
 
 
 require './package'
-
+require './client.rb'
 describe Package do
   before :each do
     @package = Package.new(100)
@@ -79,5 +79,18 @@ describe Package do
   it "should set a big package type if weight is above 1500 g" do
     @package.set_weight(2000)
     @package.type.should == "Big package"
+  end
+  it "shouuld set id" do
+    @package.set_id("2d4g")
+    @package.id.should == "2d4g"
+  end
+  it "should set sender and receiver" do
+    @package.set_sender("Jonas")
+    @package.set_receiver("Petras")
+  end
+  it "should sender be kind of client " do
+    @package.set_sender(Client.new())
+    @package.set_sender("Bernardas")
+    @package.sender.should be_kind_of(Client)
   end
 end 
