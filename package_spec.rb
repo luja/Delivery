@@ -10,7 +10,7 @@ describe Package do
     end
     it "should initialize with weigh and price" do
       @package.weight.should == 100
-      @package.price.should == 0
+      @package.price.should > 0
     end
     #++
     it "should set to first state when initialized" do

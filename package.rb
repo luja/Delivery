@@ -19,9 +19,8 @@ class Package
     def initialize(weight = nil, state = nil)
       @weight = weight
       @state = PACKAGE_STATE[0]
-      @price = 0
-      @type = nil
-  
+      self.set_type
+      self.count_price
     end
     def set_weight(weight)
       @weight = weight
