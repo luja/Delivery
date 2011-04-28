@@ -3,6 +3,7 @@
 PRICE_COF = 0.3
 PRICE = 0.5
 PACKAGE_STATE = ["Registered", "Given to curier","Delivered"]
+PACKAGE_TYPE = ["Letter", "Small package", "Medium package", "Big package"]
 
 class Package
 
@@ -24,7 +25,7 @@ class Package
     end
     def set_weight(weight)
       @weight = weight
-      set_type
+      self.set_type
     end
     
     def set_state(state)
@@ -37,18 +38,18 @@ class Package
     def next_state()
       @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]
       if @state == nil 
-        @state = "Delivered"
+        @state = PACKAGE_STATE[2]
       end
     end
 
     def set_type()
       if @weight <= 300
-        @type = "letter"
+        @type = PACKAGE_TYPE[0]
         elsif @weight <= 800
-          @type = "small package"
+          @type = PACKAGE_TYPE[1]
           elsif @weight <= 1500
-            @type = "medium package"
-          else @type = "big package" 
+            @type = PACKAGE_TYPE[2]
+          else @type = PACKAGE_TYPE[3] 
       end
     end
 

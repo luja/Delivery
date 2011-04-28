@@ -16,7 +16,9 @@ describe Package do
     it "should set to first state when initialized" do
         @package.state.should == "Registered"
     end
-    
+      it "should initialize with proper type not nil" do
+      @package.type.should_not  == nil
+    end
     it "should initialize with state registered" do
       @package.state.should == "Registered"
     end
@@ -57,18 +59,18 @@ describe Package do
     end
     it "should set a letter type if weight is under 300 g" do
       @package.set_weight(230)
-      @package.type.should == "letter"
+      @package.type.should == "Letter"
     end
     it "should set a medium package type if weight is 800 - 1500 g" do
       @package.set_weight(1000)
-      @package.type.should == "medium package"
+      @package.type.should == "Medium package"
     end
     it "should set a small package type if weight is above 300 and under 800 g" do
       @package.set_weight(750)
-      @package.type.should == "small package"
+      @package.type.should == "Small package"
     end
      it "should set a big package type if weight is above 1500 g" do
       @package.set_weight(2000)
-      @package.type.should == "big package"
+      @package.type.should == "Big package"
     end
 end 
