@@ -23,7 +23,7 @@ class Package
   attr_reader :sender
   attr_reader :receiver
   attr_reader :id
-  def initialize(weight = nil, state = nil)
+  def initialize(weight = nil)
     @weight = weight
     @state = PACKAGE_STATE[0]
     @sender = nil
