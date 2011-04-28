@@ -12,9 +12,12 @@ describe Package do
     @package.weight.should == 100
     @package.price.should > 0
   end
-    it "should initialize with sender and receiver eqqual to nil" do
+  it "should initialize with sender and receiver eqqual to nil" do
     @package.sender.should == nil
     @package.receiver.should == nil
+  end
+  it "Should initialiaze with id equal to 0" do
+    @package.id.should == 0
   end
     #++
   it "should set to first state when initialized" do

@@ -11,14 +11,22 @@ class Package
   @state
   @price
   @type
+  @sender
+  @receriver
+  @id
   attr_reader :weight
   attr_reader :state 
   attr_reader :price
   attr_reader :type
-    
+  attr_reader :sender
+  attr_reader :receiver
+  attr_reader :id
   def initialize(weight = nil, state = nil)
     @weight = weight
     @state = PACKAGE_STATE[0]
+    @sender = nil
+    @receiver = nil
+    @id = 0
     self.set_type
     self.count_price
   end
