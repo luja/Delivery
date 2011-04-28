@@ -19,7 +19,6 @@ describe Package do
   it "Should initialiaze with id equal to 0" do
     @package.id.should == 0
   end
-    #++
   it "should set to first state when initialized" do
       @package.state.should == "Registered"
   end
@@ -88,9 +87,17 @@ describe Package do
     @package.set_sender("Jonas")
     @package.set_receiver("Petras")
   end
+  #---------------matcher-----------------------------------------------------
   it "should sender be kind of client " do
     @package.set_sender(Client.new())
     @package.set_sender("Bernardas")
     @package.sender.should be_kind_of(Client)
   end
+  #-----------------matcher---------------------------------------------------
+  it "should receiver be kind of client " do
+    @package.set_receiver(Client.new())
+    @package.set_receiver("Bernardas")
+    @package.receiver.should be_kind_of(Client)
+  end
+  
 end 

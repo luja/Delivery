@@ -56,12 +56,17 @@ class Package
   end
   def set_sender(sender)
     if sender.kind_of? Client
-    @sender = sender
+      @sender = sender
     end
   end
   def set_receiver(receiver)
-    @receiver = receiver
+    if receiver.kind_of? Client
+      @receiver = receiver
+    end
   end
+ # def get_receiver()
+  #  return @receiver
+  #end
   def set_type()
     if @weight <= 300
       @type = PACKAGE_TYPE[0]
