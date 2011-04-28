@@ -25,12 +25,13 @@ describe Package do
       @package.state.should == "Given to curier"
     end
     it "should change state Given to curier into registered" do
-      @package.state = "Given to curier"
+      @package.next_state()
       @package.next_state()
       @package.state.should == "Delivered"
     end
     it "should not change state delivered" do
-    @package.state = "Delivered"
+    @package.next_state()
+    @package.next_state()
     @package.next_state()
     @package.state.should == "Delivered"
     end

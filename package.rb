@@ -6,10 +6,14 @@ PACKAGE_STATE = ["Registered", "Given to curier","Delivered"]
 
 class Package
 
-    attr_accessor :weight
-    attr_accessor :state 
-    attr_accessor :price
-    attr_accessor :type
+    @weight
+    @state
+    @price
+    @type
+    attr_reader :weight
+    attr_reader :state 
+    attr_reader :price
+    attr_reader :type
     
     def initialize(weight = nil, state = nil)
       @weight = weight
