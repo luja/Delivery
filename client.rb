@@ -1,11 +1,11 @@
 #client.rb
 
 class Client
-
-  attr_accessor :name
-  attr_accessor :surename 
-  attr_accessor :address
-  attr_reader :id
+  @name
+  @surename
+  @address
+  @id
+  attr_reader :name, :surename, :address, :id
 
   def initialize(name = nil, surname = nil, address = nil)
     @name = name

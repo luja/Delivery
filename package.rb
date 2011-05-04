@@ -32,6 +32,7 @@ class Package
     self.set_type
     self.count_price
   end
+#-------------------------------------------setters-------------------------------
   def set_id (id)
     @id = id
   end
@@ -48,12 +49,7 @@ class Package
     @price = PRICE + PRICE_COF * @weight
   end
 
-  def next_state()
-    @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]
-    if @state == nil 
-      @state = PACKAGE_STATE[2]
-    end
-  end
+
   def set_sender(sender)
     if sender.kind_of? Client
       @sender = sender
@@ -64,9 +60,7 @@ class Package
       @receiver = receiver
     end
   end
- # def get_receiver()
-  #  return @receiver
-  #end
+
   def set_type()
     if @weight <= 300
       @type = PACKAGE_TYPE[0]
@@ -76,6 +70,16 @@ class Package
           @type = PACKAGE_TYPE[2]
         else @type = PACKAGE_TYPE[3] 
     end
+  end
+   def next_state()
+    @state = PACKAGE_STATE[PACKAGE_STATE.index(@state) + 1]
+    if @state == nil 
+      @state = PACKAGE_STATE[2]
+    end
+   end
+  def generate_id()
+    @id =rand(36**8).to_s(36) 
+    return @id
   end
 
 end

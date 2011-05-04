@@ -99,5 +99,12 @@ describe Package do
     @package.set_receiver("Bernardas")
     @package.receiver.should be_kind_of(Client)
   end
-  
+  it "should generate new id" do
+    @package.generate_id()
+    @package.id.should_not == 0
+  end
+ # it "should generate unique id" do
+  #  test = @package.generate_id()
+   # @package.generate_id().should_not == test
+  #end
 end 
