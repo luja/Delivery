@@ -1,22 +1,18 @@
 #packages_delivery.rb
 
 require './packages_list.rb'
-require './senders_list.rb'
-require './receivers_list.rb'
+require './client_list.rb'
 
 class Packages_delivery
-    @receivers_list
-    @senders_list
-    @packages_list
+    @clients
+    @packages
 
-    attr_reader :receivers_list
-    attr_reader :senders_list
-    attr_reader :packages_list
+    attr_reader :client_list
+    attr_reader :packages
 
     def initialize()
-        @receivers_list = []
-        @senders_list = []
-        @packages_list = []
+        @client_list = []
+        @packages = Packages_list.new()
     end
 
 

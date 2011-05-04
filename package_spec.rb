@@ -6,7 +6,7 @@ require './package'
 require './client.rb'
 describe Package do
   before :each do
-    @package = Package.new(100)
+    @package = Package.new(nil, nil, 100)
   end
   it "should initialize with weigh and price" do
     @package.weight.should == 100
@@ -88,15 +88,17 @@ describe Package do
     @package.set_receiver("Petras")
   end
   #---------------matcher-----------------------------------------------------
-  it "should sender be kind of client " do
-    @package.set_sender(Client.new())
+  it "should sender be kind of client or equal to nil " do
     @package.set_sender("Bernardas")
+    @package.sender.should be == nil
+    @package.set_sender(Client.new())
     @package.sender.should be_kind_of(Client)
   end
   #-----------------matcher---------------------------------------------------
-  it "should receiver be kind of client " do
-    @package.set_receiver(Client.new())
+  it "should receiver be kind of client or equal to nil" do
     @package.set_receiver("Bernardas")
+    @package.sender.should be == nil
+    @package.set_receiver(Client.new())
     @package.receiver.should be_kind_of(Client)
   end
   it "should generate new id" do

@@ -23,11 +23,11 @@ class Package
   attr_reader :sender
   attr_reader :receiver
   attr_reader :id
-  def initialize(weight = nil)
+  def initialize(sender =nil, receiver = nil, weight = nil)
     @weight = weight
     @state = PACKAGE_STATE[0]
-    @sender = nil
-    @receiver = nil
+    self.set_sender(sender)
+    self..set_receiver(receiver)
     @id = 0
     self.set_type
     self.count_price
@@ -51,13 +51,15 @@ class Package
 
 
   def set_sender(sender)
-    if sender.kind_of? Client
+    if sender.kind_of? Client then
       @sender = sender
+    else @sender = nil
     end
   end
   def set_receiver(receiver)
-    if receiver.kind_of? Client
+    if receiver.kind_of? Client 
       @receiver = receiver
+    else @receiver = nil
     end
   end
 
