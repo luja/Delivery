@@ -32,4 +32,7 @@ describe Client_list do
     @client_list.how_many().should == 3
   end
 
+   it "should get client by index" do
+   @client_list.get_by_index(1).should be_kind_of(Client)
+  end
 end

@@ -28,7 +28,13 @@ describe Packages_list do
     @packages_list.packages.first.should be_instance_of(Package)
   end
   it "should get package by index" do
-   @packages_list.get_package_by_index(1).should be_kind_of(Package)
+   @packages_list.get_by_index(1).should be_kind_of(Package)
+  end
+  it "should set  id for added package" do
+   @packages_list.get_by_index(2).id.should_not == 0
+  end
+   it "should set  unique id for added package" do
+   @packages_list.get_by_index(2).id.should_not == @packages_list.get_by_index(1)
   end
  it "should return how many packages is in list" do
     @packages_list.how_many().should == 3

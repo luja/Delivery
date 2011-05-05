@@ -22,6 +22,7 @@ describe Packages_delivery do
   end
    it "should have 1 package after registering new package" do
     @packages_delivery.register_new_client("Jonas", "Kuponas", "Lieuva")
-    @packages_delivery.packages.register_new_package()
+    @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(1), @packages_delivery.clients.get_by_index(1), 200)
+    @packages_delivery.packages.how_many().should == 1
   end
 end

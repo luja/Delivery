@@ -19,4 +19,7 @@ class Client_list
   def how_many()
     return @client.size
   end
+  def get_by_index(index)
+    return @client[index]
+  end
 end

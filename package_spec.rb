@@ -83,6 +83,9 @@ describe Package do
     @package.set_id("2d4g")
     @package.id.should == "2d4g"
   end
+  it "should return id" do
+    @package.get_id.should == @package.id
+  end
   it "should set sender and receiver" do
     @package.set_sender("Jonas")
     @package.set_receiver("Petras")
