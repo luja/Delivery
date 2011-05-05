@@ -86,18 +86,24 @@ class Package
   def get_weight()
     return @weight
   end
+   def get_sender()
+    return @sender
+  end
+ def get_receiver()
+    return @receiver
+  end
   def get_id()
     return @id
   end
   def get_info()
-    print "Siuntinio id: ", @id, "\n"
-    print "Siuntinio svoris: ", @weight, "\n"
-    print "Siuntinio tipas: ", @type, "\n"
-    print "Siuntinio busena: ", @state, "\n"
-    print "Siuntinio pristatymo kaina: ", @price, "\n"
-    print "Siuntejas:", "\n"
+    print "Id: ", @id, "\n"
+    print "Weight: ", @weight, "\n"
+    print "Type: ", @type, "\n"
+    print "State: ", @state, "\n"
+    print "Delivery price: ", @price, "\n"
+    print "Sender:", "\n"
     @sender.get_info
-    print "Gavejas:", "\n"
+    print "Receiver:", "\n"
     @receiver.get_info
   end
 end

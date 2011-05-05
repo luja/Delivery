@@ -1,5 +1,5 @@
 #client.rb
-
+require 'yaml'
 class Client
   @name
   @surename
@@ -36,14 +36,17 @@ class Client
   def remove_package(nr)
     @id.delete(nr)
   end
+  def how_many_packages()
+    @id.length
+  end
   def get_info()
-    print " Vardas: ", @name, "\n"
-    print " Pavarde: ", @surename, "\n"
-    print " Adresas: ", @address, "\n"
+    print " Name: ", @name, "\n"
+    print " Surname: ", @surename, "\n"
+    print " Address: ", @address, "\n"
   end
   def get_spec_info()
     get_info
-    print "Siunciami siuntiniai: \n"
+    print "Packeges: \n"
     @id.length.times do |i|
       print @id[i], " "
     end

@@ -20,14 +20,22 @@ class Packages_delivery
   def register_new_package(sender, receiver, weight)
     package = Package.new(sender, receiver, weight)
     @packages.add_package(package)
+    sender.add_package(package.get_id)
   end
   def search_by_id(id)
     return @packages.get_by_id(id)
   end
   def remove_package(id)
-    @packages.remove_package(search_by_id(id))
+    package = search_by_id(id)
+    sender = package.get_sender
+    sender.remove_package(id)
+    @packages.remove_package(package)
   end
   def remove_client(name, surename)
      @clients.remove(name, surename)
+  end
+  def get_client_info()
+    print "At this moment there are ", @clients.how_many, " registered clients:\n"
+    @clients.get_info
   end
 end

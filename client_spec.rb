@@ -11,7 +11,7 @@ describe Client do
       @client.surename.should == "Jonaitis"
       @client.address.should == "Laimes al. 10"
   end
-  #1
+  #-------------------------------------matcher-------------
   it "should id list be empty" do
       @client.id.should be_empty
   end
@@ -19,9 +19,10 @@ describe Client do
       @client.set_name("Agne")
       @client.name.should == "Agne"
   end
+  #-----------------------------------matcher----------------
   it "should set surname" do
     @client.set_surename("Piliakalniaite")
-    @client.surename.should == "Piliakalniaite"
+    @client.surename.should eql("Piliakalniaite")
   end
   it "should set address" do
     @client.set_address("Zalioji al. 56")
@@ -31,19 +32,21 @@ describe Client do
     @client.add_package(4)
     @client.id.length.should == 1
   end 
+  it "should return number of packages that been send" do
+    @client.how_many_packages.should == @client.id.length
+  end 
   it "should remove package" do
     @client.add_package(4)
     @client.add_package(5)
     @client.add_package(3)
     @client.remove_package(5)
     @client.id.length.should == 2
-    @client.get_spec_info
   end 
   it "Should get name of client" do
-    @client.get_name.should == @client.name
+    @client.get_name.should eql(@client.name)
   end
   it "Should get surename of client" do
-    @client.get_surename.should == @client.surename
+    @client.get_surename.should eql(@client.surename)
   end   
 end
 

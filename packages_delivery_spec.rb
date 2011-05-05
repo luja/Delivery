@@ -31,7 +31,6 @@ describe Packages_delivery do
     @packages_delivery.clients.how_many().should == 5
   end
    it "should have 5 package after registering new package" do
-    @packages_delivery.packages.get_info()
     @packages_delivery.packages.how_many().should == 5
   end
   it "should search package by id" do
@@ -43,8 +42,16 @@ describe Packages_delivery do
     @packages_delivery.remove_package(id)
     @packages_delivery.packages.how_many.should == 4
   end
+  it "should remove package id from sender data" do
+    id =  @packages_delivery.packages.get_by_index(0).get_id
+    @packages_delivery.remove_package(id)
+    @packages_delivery.clients.get_by_index(1).how_many_packages.should == 1
+  end
   it "should remove client from list" do
     @packages_delivery.remove_client("Jonas", "Kuponas")
     @packages_delivery.clients.how_many.should == 4
+  end
+  it "should add package id to sender data" do
+    @packages_delivery.clients.get_by_index(1).how_many_packages.should == 2
   end
 end

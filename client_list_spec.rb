@@ -18,7 +18,7 @@ describe Client_list do
     client_list = Client_list.new
     client_list.client.should be_empty
   end
-
+  #-------------------------------------matcher--------------------------
   it "should have 3 clients in list after adding three clients" do
     @client_list.should have(3).client
   end
@@ -29,10 +29,10 @@ describe Client_list do
   end
 
   it "should return how many clients is in list" do
-    @client_list.get_info
+    @client_list.save
     @client_list.how_many().should == 3
   end
-
+  #--------------------------------------matcher-------------------------------
    it "should get client by index" do
    @client_list.get_by_index(1).should be_kind_of(Client)
   end
@@ -41,9 +41,7 @@ describe Client_list do
     @client_list.get_by_name(1, 12).should == nil
   end
   it "should remove client by name and surename" do
-    @client_list.get_info
     @client_list.remove("Jonas", "Karpaitis")
-    @client_list.get_info
     @client_list.how_many.should == 2
   end
 end

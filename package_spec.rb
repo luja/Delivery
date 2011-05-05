@@ -86,6 +86,12 @@ describe Package do
   it "should return id" do
     @package.get_id.should == @package.id
   end
+  it "should return sender" do
+    @package.get_sender.should == @package.sender
+  end
+  it "should return receiver" do
+    @package.get_receiver.should == @package.receiver
+  end
  it "should return weight" do
     @package.get_weight.should == @package.weight
   end
@@ -93,14 +99,12 @@ describe Package do
     @package.set_sender("Jonas")
     @package.set_receiver("Petras")
   end
-  #---------------matcher-----------------------------------------------------
   it "should sender be kind of client or equal to nil " do
     @package.set_sender("Bernardas")
     @package.sender.should be == nil
     @package.set_sender(Client.new())
     @package.sender.should be_kind_of(Client)
   end
-  #-----------------matcher---------------------------------------------------
   it "should receiver be kind of client or equal to nil" do
     @package.set_receiver("Bernardas")
     @package.sender.should be == nil

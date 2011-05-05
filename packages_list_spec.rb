@@ -15,7 +15,6 @@ describe Packages_list do
     @packages_list.add_package(@package3)
     
   end
-  #----------------------matcher-----------------------------------
   it "should be empty list when created" do
     packages_list1 = Packages_list.new
     packages_list1.packages.should be_empty
@@ -23,7 +22,6 @@ describe Packages_list do
   it "should have 3 package in list after adding 3 package" do
     @packages_list.should have(3).packages
   end
-  #--------------------matcher--------------------------------------
   it "should package of packages_list should be Package" do
     @packages_list.packages.first.should be_instance_of(Package)
   end

@@ -47,7 +47,7 @@ class Packages_list
     @packages.delete(package)
   end
   def get_info()
-    print "Siuntiniu sarasas: \n \n"
+    print "Packages list: \n \n"
     @packages.length.times do |i|
       @packages[i].get_info 
       print "\n" 
