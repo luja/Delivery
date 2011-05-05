@@ -50,4 +50,11 @@ class Client_list
   def remove(name, surename)
     @client.delete(get_by_name(name, surename))  
   end
+  def is_empty()
+    if @client.size == 0
+      return true
+    
+    end
+else return false
+  end
 end

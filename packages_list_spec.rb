@@ -38,6 +38,10 @@ describe Packages_list do
     id = @package2.get_id
     @packages_list.get_by_id(id).get_id.should == id
   end 
+  #------------------------------matcher---------------------------------- 
+  it "should return nil if cant find package with given id" do
+    @packages_list.get_by_id(12).should be_nil
+  end 
   it "should return how many packages is in list" do  
     @packages_list.how_many().should == 3
   end
