@@ -15,10 +15,6 @@ describe Client do
   it "should id list be empty" do
       @client.id.should be_empty
   end
-  it "should add id"
-    @client.add(id)
-    @client.id.should have(1)
-  end
   it "should set name" do
       @client.set_name("Agne")
       @client.name.should == "Agne"
@@ -34,6 +30,14 @@ describe Client do
   it "should add package" do
     @client.add_package(4)
     @client.id.length.should == 1
+  end 
+  it "should remove package" do
+    @client.add_package(4)
+    @client.add_package(5)
+    @client.add_package(3)
+    @client.remove_package(5)
+    @client.id.length.should == 2
+    @client.get_spec_info
   end 
   it "Should get name of client" do
     @client.get_name.should == @client.name

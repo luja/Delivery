@@ -33,10 +33,21 @@ class Client
   def add_package(nr)
     @id << nr
   end
+  def remove_package(nr)
+    @id.delete(nr)
+  end
   def get_info()
     print " Vardas: ", @name, "\n"
     print " Pavarde: ", @surename, "\n"
     print " Adresas: ", @address, "\n"
+  end
+  def get_spec_info()
+    get_info
+    print "Siunciami siuntiniai: \n"
+    @id.length.times do |i|
+      print @id[i], " "
+    end
+    print "\n"
   end
 end
 
