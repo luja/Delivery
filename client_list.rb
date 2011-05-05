@@ -53,8 +53,7 @@ class Client_list
   def is_empty()
     if @client.size == 0
       return true
-    
+    else return false
     end
-else return false
   end
 end

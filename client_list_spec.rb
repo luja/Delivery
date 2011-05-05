@@ -44,10 +44,12 @@ describe Client_list do
     @client_list.remove("Jonas", "Karpaitis")
     @client_list.how_many.should == 2
   end
+  #-----------------------matcher---------------------------------
   it "should return true if list is empty" do
     list = Client_list.new
     list.is_empty.should be_true
   end
+  #-----------------------matcher---------------------------------
   it "should return false if list isn't empty" do
     @client_list.is_empty.should be_false
   end
