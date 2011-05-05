@@ -2,14 +2,15 @@
 
 require './packages_list.rb'
 require './package.rb'
+require './client.rb'
 
 describe Packages_list do
   before (:each) do
     @packages_list = Packages_list.new
-    @package1 = Package.new(200)
+    @package1 = Package.new(Client.new, Client.new, 200)
     @packages_list.add_package(@package1)
-    @package2 = Package.new(20)
-    @package3 = Package.new(40)
+    @package2 = Package.new(nil, nil, 20)
+    @package3 = Package.new(nil, nil, 40)
     @packages_list.add_package(@package2)
     @packages_list.add_package(@package3)
 
@@ -28,5 +29,8 @@ describe Packages_list do
   end
   it "should get package by index" do
    @packages_list.get_package_by_index(1).should be_kind_of(Package)
+  end
+ it "should return how many packages is in list" do
+    @packages_list.how_many().should == 3
   end
 end

@@ -20,5 +20,8 @@ describe Packages_delivery do
     @packages_delivery.register_new_client("Jonas", "Kuponas", "Lieuva")
     @packages_delivery.clients.how_many().should == 1
   end
-  
+   it "should have 1 package after registering new package" do
+    @packages_delivery.register_new_client("Jonas", "Kuponas", "Lieuva")
+    @packages_delivery.packages.register_new_package()
+  end
 end
