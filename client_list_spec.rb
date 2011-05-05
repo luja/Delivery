@@ -29,10 +29,21 @@ describe Client_list do
   end
 
   it "should return how many clients is in list" do
+    @client_list.get_info
     @client_list.how_many().should == 3
   end
 
    it "should get client by index" do
    @client_list.get_by_index(1).should be_kind_of(Client)
+  end
+  it "should get client by name and surename" do
+    @client_list.get_by_name("Jonas", "Karpaitis").get_name.should == "Jonas"
+    @client_list.get_by_name(1, 12).should == nil
+  end
+  it "should remove client by name and surename" do
+    @client_list.get_info
+    @client_list.remove("Jonas", "Karpaitis")
+    @client_list.get_info
+    @client_list.how_many.should == 2
   end
 end

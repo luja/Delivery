@@ -40,7 +40,15 @@ describe Packages_list do
     id = @package2.get_id
     @packages_list.get_by_id(id).get_id.should == id
   end 
-  it "should return how many packages is in list" do
+  it "should return how many packages is in list" do  
     @packages_list.how_many().should == 3
+  end
+   it "should remove package from list" do
+    @packages_list.remove_package(@package2)
+    @packages_list.how_many().should == 2
+    @packages_list.remove_package(@package1)
+    @packages_list.how_many().should == 1  
+    @packages_list.remove_package("frisk")
+    @packages_list.how_many().should == 1
   end
 end

@@ -14,7 +14,7 @@ class Package
   @price
   @type
   @sender
-  @receriver
+  @receiver
   @id
   attr_reader :weight
   attr_reader :state 
@@ -27,7 +27,7 @@ class Package
     @weight = weight
     @state = PACKAGE_STATE[0]
     self.set_sender(sender)
-    self..set_receiver(receiver)
+    self.set_receiver(receiver)
     @id = 0
     self.set_type
     self.count_price
@@ -51,7 +51,7 @@ class Package
 
 
   def set_sender(sender)
-    if sender.kind_of? Client then
+    if sender.kind_of? Client
       @sender = sender
     else @sender = nil
     end
@@ -88,5 +88,16 @@ class Package
   end
   def get_id()
     return @id
+  end
+  def get_info()
+    print "Siuntinio id: ", @id, "\n"
+    print "Siuntinio svoris: ", @weight, "\n"
+    print "Siuntinio tipas: ", @type, "\n"
+    print "Siuntinio busena: ", @state, "\n"
+    print "Siuntinio pristatymo kaina: ", @price, "\n"
+    print "Siuntejas:", "\n"
+    @sender.get_info
+    print "Gavejas:", "\n"
+    @receiver.get_info
   end
 end

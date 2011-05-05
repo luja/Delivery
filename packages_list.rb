@@ -43,5 +43,15 @@ class Packages_list
  def how_many()
     return @packages.size
   end
+  def remove_package(package)
+    @packages.delete(package)
+  end
+  def get_info()
+    print "Siuntiniu sarasas: \n \n"
+    @packages.length.times do |i|
+      @packages[i].get_info 
+      print "\n" 
+    end
+  end
 end
 

@@ -16,7 +16,7 @@ describe Packages_delivery do
     @packages_delivery.register_new_client("Bernardas", "Kardamavicius", "Lieuva")
     @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(1), @packages_delivery.clients.get_by_index(2), 200)
     @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(3), @packages_delivery.clients.get_by_index(4), 34)
-    @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(2), @packages_delivery.clients.get_by_index(5), 180) 
+    @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(2), @packages_delivery.clients.get_by_index(3), 180) 
     @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(4), @packages_delivery.clients.get_by_index(1), 300)
     @packages_delivery.register_new_package(@packages_delivery.clients.get_by_index(1), @packages_delivery.clients.get_by_index(2), 800)
   end
@@ -31,6 +31,7 @@ describe Packages_delivery do
     @packages_delivery.clients.how_many().should == 5
   end
    it "should have 5 package after registering new package" do
+    @packages_delivery.packages.get_info()
     @packages_delivery.packages.how_many().should == 5
   end
   it "should search package by id" do
@@ -38,7 +39,12 @@ describe Packages_delivery do
     @packages_delivery.search_by_id(id).get_id.should == id
   end
   it "should remove package from list" do
-    @packages_delivery.remove_package(package)
-    @packeges_delivery.packages.how_many.should == 4
+    id =  @packages_delivery.packages.get_by_index(2).get_id
+    @packages_delivery.remove_package(id)
+    @packages_delivery.packages.how_many.should == 4
+  end
+  it "should remove client from list" do
+    @packages_delivery.remove_client("Jonas", "Kuponas")
+    @packages_delivery.clients.how_many.should == 4
   end
 end

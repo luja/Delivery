@@ -24,4 +24,10 @@ class Packages_delivery
   def search_by_id(id)
     return @packages.get_by_id(id)
   end
+  def remove_package(id)
+    @packages.remove_package(search_by_id(id))
+  end
+  def remove_client(name, surename)
+     @clients.remove(name, surename)
+  end
 end

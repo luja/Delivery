@@ -24,8 +24,19 @@ class Client
   def set_address(address)
     @address = address
   end
+  def get_name()
+    return @name
+  end
+  def get_surename()
+    return @surename
+  end
   def add_package(nr)
     @id << nr
+  end
+  def get_info()
+    print " Vardas: ", @name, "\n"
+    print " Pavarde: ", @surename, "\n"
+    print " Adresas: ", @address, "\n"
   end
 end
 
