@@ -21,4 +21,7 @@ class Packages_delivery
     package = Package.new(sender, receiver, weight)
     @packages.add_package(package)
   end
+  def search_by_id(id)
+    return @packages.get_by_id(id)
+  end
 end

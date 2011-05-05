@@ -83,5 +83,10 @@ class Package
     @id =rand(36**8).to_s(36) 
     return @id
   end
-
+  def get_weight()
+    return @weight
+  end
+  def get_id()
+    return @id
+  end
 end

@@ -86,6 +86,9 @@ describe Package do
   it "should return id" do
     @package.get_id.should == @package.id
   end
+ it "should return weight" do
+    @package.get_weight.should == @package.weight
+  end
   it "should set sender and receiver" do
     @package.set_sender("Jonas")
     @package.set_receiver("Petras")

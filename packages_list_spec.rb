@@ -13,7 +13,7 @@ describe Packages_list do
     @package3 = Package.new(nil, nil, 40)
     @packages_list.add_package(@package2)
     @packages_list.add_package(@package3)
-
+    
   end
   #----------------------matcher-----------------------------------
   it "should be empty list when created" do
@@ -36,7 +36,11 @@ describe Packages_list do
    it "should set  unique id for added package" do
    @packages_list.get_by_index(2).id.should_not == @packages_list.get_by_index(1)
   end
- it "should return how many packages is in list" do
+  it "should get package from the list with given id" do
+    id = @package2.get_id
+    @packages_list.get_by_id(id).get_id.should == id
+  end 
+  it "should return how many packages is in list" do
     @packages_list.how_many().should == 3
   end
 end
