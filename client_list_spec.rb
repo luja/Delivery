@@ -23,8 +23,13 @@ describe Client_list do
     @client_list.should have(3).client
   end
 
-  it "receiver of client_list should be Client" do
-    @client_list.client.first.should be_instance_of(Client)
+  it "should add only Client type variables to list" do
+    @client_list.add_client("Jonas")
+    @client_list.should have(3).client
+  end
+
+  it "should return how many clients is in list" do
+    @client_list.how_many().should == 3
   end
 
 end

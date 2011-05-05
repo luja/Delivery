@@ -3,14 +3,20 @@
 require './client.rb'
 
 class Client_list
-    @client
-    attr_reader :client
+  @client
+  attr_reader :client
 
-    def initialize()
-       @client = []
+  def initialize()
+    @client = []
+  end
+  
+  def add_client(client)
+    if client.kind_of? Client
+      @client << client
     end
-    def add_client(snd)
-        client = Client.new()
-        @client << client
-    end
+  end
+
+  def how_many()
+    return @client.size
+  end
 end

@@ -16,8 +16,9 @@ describe Packages_delivery do
    it "should have list for storing clients of Client_list type" do
     @packages_delivery.clients.should be_kind_of(Client_list)
   end
-  #it "should add receiver" do
-   #   @packages_delivery.add_receiver
-    #  @packages_delivery.receivers_list.should have(1).receivers
-  #end
+  it "should have 1 client after registering new client" do
+    @packages_delivery.register_new_client("Jonas", "Kuponas", "Lieuva")
+    @packages_delivery.clients.how_many().should == 1
+  end
+  
 end
