@@ -4,44 +4,39 @@ require './client.rb'
 
 class Client_list
   @client
-  attr_reader :client
+  attr_accessor :client
 
   def initialize()
     @client = []
   end
-  def save()
-    readme = YAML::load( File.open( 'README' ) )
-    self.to_yaml
-  end
   def add_client(client)
-    if client.kind_of? Client
+    if (client.kind_of? Client) && !is_registered(client)
       @client << client
+      return client
+    elsif (client.kind_of? Client)
+      return get_by_name(client.name, client.surename)
     end
+  return nil
   end
-
+  def is_registered(client)
+    registered = false
+    @client.length.times do |i|
+      if (@client[i].name == client.name) && (@client[i].surename == client.surename) && (@client[i].address == client.address)
+        registered = true
+      end
+    end
+  return registered
+  end
   def how_many()
     return @client.size
   end
   def get_by_index(index)
     return @client[index]
   end
-  def get_info()
-    print "Client list: \n \n"
+
+ def get_by_name(name, surename)
     @client.length.times do |i|
-      @client[i].get_info 
-      print "\n" 
-    end
-  end
-  def get_spec_info()
-    print "Client list: \n \n"
-    @client.length.times do |i|
-      @client[i].get_spec_info 
-      print "\n" 
-    end
-  end
-  def get_by_name(name, surename)
-    @client.length.times do |i|
-      if (@client[i].get_name.eql? name) && (@client[i].get_surename.eql? surename)
+      if (@client[i].name.eql? name) && (@client[i].surename.eql? surename)
         return @client[i]
       end
     end 

@@ -16,13 +16,9 @@ class Package
   @sender
   @receiver
   @id
-  attr_reader :weight
-  attr_reader :state 
-  attr_reader :price
-  attr_reader :type
-  attr_reader :sender
-  attr_reader :receiver
-  attr_reader :id
+  attr_accessor :weight, :price, :id
+  attr_reader   :type, :sender, :receiver, :state
+
   def initialize(sender =nil, receiver = nil, weight = nil)
     @weight = weight
     @state = PACKAGE_STATE[0]
@@ -32,37 +28,29 @@ class Package
     self.set_type
     self.count_price
   end
-#-------------------------------------------setters-------------------------------
-  def set_id (id)
-    @id = id
-  end
-  def set_weight(weight)
-    @weight = weight
-    self.set_type
-  end
-  
-  def set_state(state)
-    @state = state
-  end
-    
   def count_price()
     @price = PRICE + PRICE_COF * @weight
   end
-
-
   def set_sender(sender)
     if sender.kind_of? Client
       @sender = sender
+      return 0
     else @sender = nil
+    return 1
     end
   end
   def set_receiver(receiver)
     if receiver.kind_of? Client 
       @receiver = receiver
+      return 0
     else @receiver = nil
+      return 1
     end
   end
-
+  def set_weight(weight)
+    @weight = weight
+    self.set_type
+  end
   def set_type()
     if @weight <= 300
       @type = PACKAGE_TYPE[0]
@@ -82,28 +70,5 @@ class Package
   def generate_id()
     @id =rand(36**8).to_s(36) 
     return @id
-  end
-  def get_weight()
-    return @weight
-  end
-   def get_sender()
-    return @sender
-  end
- def get_receiver()
-    return @receiver
-  end
-  def get_id()
-    return @id
-  end
-  def get_info()
-    print "Id: ", @id, "\n"
-    print "Weight: ", @weight, "\n"
-    print "Type: ", @type, "\n"
-    print "State: ", @state, "\n"
-    print "Delivery price: ", @price, "\n"
-    print "Sender:", "\n"
-    @sender.get_info
-    print "Receiver:", "\n"
-    @receiver.get_info
   end
 end

@@ -2,8 +2,8 @@
 
 require './packages_delivery.rb'
 require './packages_list.rb'
-require './senders_list.rb'
-require './receivers_list.rb'
+require './client.rb'
+require './client_list.rb'
 require './package.rb'
 
 describe Packages_delivery do
@@ -34,16 +34,19 @@ describe Packages_delivery do
     @packages_delivery.packages.how_many().should == 5
   end
   it "should search package by id" do
-    id =  @packages_delivery.packages.get_by_index(2).get_id
-    @packages_delivery.search_by_id(id).get_id.should == id
+    id =  @packages_delivery.packages.get_by_index(2).id
+    @packages_delivery.search_by_id(id).id.should == id
+  end
+  it "should return nil if searching with wrong id" do
+    @packages_delivery.search_by_id("bu").should == nil
   end
   it "should remove package from list" do
-    id =  @packages_delivery.packages.get_by_index(2).get_id
+    id =  @packages_delivery.packages.get_by_index(2).id
     @packages_delivery.remove_package(id)
     @packages_delivery.packages.how_many.should == 4
   end
   it "should remove package id from sender data" do
-    id =  @packages_delivery.packages.get_by_index(0).get_id
+    id =  @packages_delivery.packages.get_by_index(0).id
     @packages_delivery.remove_package(id)
     @packages_delivery.clients.get_by_index(1).how_many_packages.should == 1
   end
@@ -53,5 +56,8 @@ describe Packages_delivery do
   end
   it "should add package id to sender data" do
     @packages_delivery.clients.get_by_index(1).how_many_packages.should == 2
+  end
+  it "should return nil if there is no package to remove" do
+    @packages_delivery.remove_package("bu").should == nil
   end
 end

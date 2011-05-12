@@ -1,9 +1,8 @@
 #package_spec.rb
 
-
-
 require './package'
 require './client.rb'
+
 describe Package do
   before :each do
     @package = Package.new(nil, nil, 100)
@@ -25,8 +24,6 @@ describe Package do
   it "should initialize with proper type not nil" do
     @package.type.should_not  == nil
   end
-  it "should initialize with state registered" do
-    @package.state.should == "Registered"
   end
   it "should change state registered into given to curier" do
     @package.next_state()
@@ -43,15 +40,6 @@ describe Package do
     @package.next_state()
     @package.state.should == "Delivered"
   end
-  it "should set weight" do
-    @package.set_weight(350)
-    @package.weight.should == 350
-  end 
-
-  it "should set state" do
-    @package.set_state("Delivered")
-    @package.state.should == "Delivered"
-  end 
   #++
   it "should count price" do
     @package.set_weight(1000)
@@ -79,23 +67,7 @@ describe Package do
     @package.set_weight(2000)
     @package.type.should == "Big package"
   end
-  it "shouuld set id" do
-    @package.set_id("2d4g")
-    @package.id.should == "2d4g"
-  end
-  it "should return id" do
-    @package.get_id.should == @package.id
-  end
-  it "should return sender" do
-    @package.get_sender.should == @package.sender
-  end
-  it "should return receiver" do
-    @package.get_receiver.should == @package.receiver
-  end
- it "should return weight" do
-    @package.get_weight.should == @package.weight
-  end
-  it "should set sender and receiver" do
+   it "should set sender and receiver" do
     @package.set_sender("Jonas")
     @package.set_receiver("Petras")
   end
@@ -115,8 +87,4 @@ describe Package do
     @package.generate_id()
     @package.id.should_not == 0
   end
- # it "should generate unique id" do
-  #  test = @package.generate_id()
-   # @package.generate_id().should_not == test
-  #end
 end 

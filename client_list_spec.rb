@@ -2,6 +2,7 @@
 
 require './client_list.rb'
 require './client.rb'
+require './matchers.rb'
 
 describe Client_list do
   before (:each) do
@@ -29,7 +30,6 @@ describe Client_list do
   end
 
   it "should return how many clients is in list" do
-    @client_list.save
     @client_list.how_many().should == 3
   end
   #--------------------------------------matcher-------------------------------
@@ -37,7 +37,7 @@ describe Client_list do
    @client_list.get_by_index(1).should be_kind_of(Client)
   end
   it "should get client by name and surename" do
-    @client_list.get_by_name("Jonas", "Karpaitis").get_name.should == "Jonas"
+    @client_list.get_by_name("Jonas", "Karpaitis").name.should == "Jonas"
     @client_list.get_by_name(1, 12).should == nil
   end
   it "should remove client by name and surename" do
@@ -52,5 +52,22 @@ describe Client_list do
   #-----------------------matcher---------------------------------
   it "should return false if list isn't empty" do
     @client_list.is_empty.should be_false
+  end
+  it "should client be registered in list" do
+    cl = Client.new('Paulius', 'Stulgis', 'Vilties g. 28')
+    cl.should be_registered(@client_list)
+  end
+  it "should be registered" do
+    @client_list.is_registered(@client1).should be_true
+  end 
+   it "should not be registered" do
+    @client_list.is_registered(Client.new("Dalie", "Bale", "Lietuva, Vilnius")).should be_false
+  end 
+  it "should not register client twice" do
+    @client_list.add_client(@client1)
+    @client_list.should have(3).client
+  end
+   it "should return client" do
+    @client_list.add_client(@client1).should be_kind_of(Client)
   end
 end

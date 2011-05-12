@@ -3,6 +3,7 @@
 require './packages_list.rb'
 require './package.rb'
 require './client.rb'
+require './matchers.rb'
 
 describe Packages_list do
   before (:each) do
@@ -31,12 +32,13 @@ describe Packages_list do
   it "should set  id for added package" do
    @packages_list.get_by_index(2).id.should_not == 0
   end
-   it "should set  unique id for added package" do
-   @packages_list.get_by_index(2).id.should_not == @packages_list.get_by_index(1)
-  end
+
   it "should get package from the list with given id" do
-    id = @package2.get_id
-    @packages_list.get_by_id(id).get_id.should == id
+    id = @package2.id
+    @packages_list.get_by_id(id).id.should == id
+  end 
+  it "should return nil if searching with wrong id" do
+    @packages_list.get_by_id("bu") == nil
   end 
   #------------------------------matcher---------------------------------- 
   it "should return nil if cant find package with given id" do
@@ -52,5 +54,9 @@ describe Packages_list do
     @packages_list.how_many().should == 1  
     @packages_list.remove_package("frisk")
     @packages_list.how_many().should == 1
+  end
+  it  "should generate unique id" do
+    id = @packages_list.gen_id
+    id.should be_unique_in(@packages_list)
   end
 end

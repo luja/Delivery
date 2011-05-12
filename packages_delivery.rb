@@ -7,29 +7,36 @@ require './client.rb'
 class Packages_delivery
   @clients
   @packages
-  attr_reader :clients
-  attr_reader :packages
+  attr_accessor :clients
+  attr_accessor :packages
 
   def initialize()
     @clients = Client_list.new
     @packages = Packages_list.new
   end
   def register_new_client(name, surename, address)
-    @clients.add_client(Client.new(name, surename, address))
+    client = Client.new(name, surename, address)
+    @clients.add_client(client)
+    return client
   end    
   def register_new_package(sender, receiver, weight)
     package = Package.new(sender, receiver, weight)
     @packages.add_package(package)
-    sender.add_package(package.get_id)
+    sender.add_package(package.id)
+    return package
   end
   def search_by_id(id)
     return @packages.get_by_id(id)
   end
   def remove_package(id)
     package = search_by_id(id)
-    sender = package.get_sender
-    sender.remove_package(id)
-    @packages.remove_package(package)
+    if !(package == nil)
+      sender = package.sender
+      sender.remove_package(id)
+      @packages.remove_package(package)
+      return 0
+    else return nil
+    end
   end
   def remove_client(name, surename)
      @clients.remove(name, surename)
@@ -37,5 +44,17 @@ class Packages_delivery
   def get_client_info()
     print "At this moment there are ", @clients.how_many, " registered clients:\n"
     @clients.get_info
+  end
+  def save_to_file(filename)
+    File.open(filename, "w") {|f| f.write(self.to_yaml) }
+  end
+  def load_from_file(filename)
+     return nil if not File.exists?(filename)
+    parsed = begin
+    YAML.load(File.open(filename))
+    rescue ArgumentError => e
+      puts "Could not parse YAML: #{e.message}"
+    end
+    return parsed
   end
 end
