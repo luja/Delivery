@@ -71,15 +71,17 @@ def new_client
   return @delivery.register_new_client(name, surename, address)
 end
 def sort_by_type
-  puts "What type you want to see: -Letter \n -Small package \n-Medium package \n-Big package\n"
+  puts "What type you want to see: \n -Letter \n -Small package \n -Medium package \n -Big package\n"
   type = gets.chomp
   list = @delivery.packages.sort_by_type(type)
+  puts "Found #{list.how_many} packages."
   print_package_list(list)
 end
 def sort_by_state
-  puts "What type you want to see:\n -Registeres \n -Given to curier \n-Delivered \n"
+  puts "What type you want to see:\n -Registered \n -Given to curier \n -Delivered \n"
   state = gets.chomp
   list = @delivery.packages.sort_by_state(state)
+  puts "Found #{list.how_many} packages."
   print_package_list(list)
 end
 def search_client
