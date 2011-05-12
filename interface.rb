@@ -11,7 +11,8 @@ def get_command
    cmd = nil
    while (cmd != "exit")
          puts"\n======================Main menu=========================\n"
-   puts "Commands: \n -new package \n -delete package \n -search pacakge \n -print list of client \n -print list of packages \n -exit "
+   puts "Commands: \n -new package \n -delete package \n -search pacakge \n -print list of client \n -print list of packages \n -search client  "
+   puts " -sort by type \n -sort by state\n -exit"
    cmd = gets.chomp
    if cmd != "exit"
      command_interpretator(cmd)
@@ -37,14 +38,25 @@ def command_interpretator(cmd)
     when "search package"
       puts"\n===================Searching package============================\n"
       search_package
- #   when "search client"
-  #  search_client
+#     when "generate check"
+ #     puts"\n===================Generating check============================\n"
+  #    generate_check
+    when "search client"
+      puts "\n====================Searching client============================\n"    
+      search_client
     when "print list of client"
       puts"\n===================Client List============================\n"
       print_client_list(@delivery.clients)
     when "print list of packages"
       puts"\n===================Package List============================\n"
       print_package_list(@delivery.packages)
+    when "sort by type"
+      puts"\n===================Sorting by type============================\n"
+      sort_by_type
+    when "sort by state"
+      puts"\n===================Sorting by state============================\n"
+      sort_by_state
+
     else puts "Invalid command"
       end
 end
@@ -58,12 +70,28 @@ def new_client
   address = gets.chomp
   return @delivery.register_new_client(name, surename, address)
 end
+def sort_by_type
+  puts "What type you want to see: -Letter \n -Small package \n-Medium package \n-Big package\n"
+  type = gets.chomp
+  list = @delivery.packages.sort_by_type(type)
+  print_package_list(list)
+end
+def sort_by_state
+  puts "What type you want to see:\n -Registeres \n -Given to curier \n-Delivered \n"
+  state = gets.chomp
+  list = @delivery.packages.sort_by_state(state)
+  print_package_list(list)
+end
 def search_client
   puts "Name: \n"
   name = gets.chomp
   puts "Surename:\n"
   surename = gets.chomp
-  search_by_name()
+  client = @delivery.search_client(name, surename)
+  if client != nil
+    print_client_info(client)
+  else puts "This client isnt registered"
+  end
 end
 def new_package
   weight = puts "Package weight:\n"

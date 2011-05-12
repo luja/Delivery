@@ -60,4 +60,7 @@ describe Packages_delivery do
   it "should return nil if there is no package to remove" do
     @packages_delivery.remove_package("bu").should == nil
   end
+  it "should search client by name and surename" do
+    @packages_delivery.search_client("Jonas", "Kuponas").should be_kind_of(Client)
+  end
 end

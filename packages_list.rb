@@ -43,15 +43,27 @@ class Packages_list
  def how_many()
     return @packages.size
   end
+  def sort_by_type(type)
+    pckg = Packages_list.new
+     @packages.length.times do |i|
+      if @packages[i].type == type
+        pckg.add_package(@packages[i])
+      end
+     end
+   return pckg
+  end
+  def sort_by_state(state)
+    pckg = Packages_list.new
+     @packages.length.times do |i|
+      if @packages[i].state == state
+        pckg.add_package(@packages[i])
+      end
+     end
+   return pckg
+  end
   def remove_package(package)
     @packages.delete(package)
   end
-  def get_info()
-    print "Packages list: \n \n"
-    @packages.length.times do |i|
-      @packages[i].get_info 
-      print "\n" 
-    end
-  end
+ 
 end
 

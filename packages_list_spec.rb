@@ -10,7 +10,7 @@ describe Packages_list do
     @packages_list = Packages_list.new
     @package1 = Package.new(Client.new, Client.new, 200)
     @packages_list.add_package(@package1)
-    @package2 = Package.new(nil, nil, 20)
+    @package2 = Package.new(nil, nil, 750)
     @package3 = Package.new(nil, nil, 40)
     @packages_list.add_package(@package2)
     @packages_list.add_package(@package3)
@@ -58,5 +58,41 @@ describe Packages_list do
   it  "should generate unique id" do
     id = @packages_list.gen_id
     id.should be_unique_in(@packages_list)
+  end
+  it "should return all letters" do
+    list =  @packages_list.sort_by_type("Letter")
+    list.should have(2).packages
+  end
+ it "should return all small packages" do
+    list =  @packages_list.sort_by_type("Small package")
+    list.should have(1).packages
+  end
+ it "should return all medium packages" do
+     pckg = Package.new(nil, nil, 850)
+    @packages_list.add_package(pckg)
+    list =  @packages_list.sort_by_type("Medium package")
+    list.should have(1).packages
+  end
+ it "should return all big packages" do
+    pckg = Package.new(nil, nil, 1550)
+    @packages_list.add_package(pckg)
+    list =  @packages_list.sort_by_type("Big package")
+    list.should have(1).packages
+  end
+   it "should return all registered packages" do
+    list =  @packages_list.sort_by_state("Registered")
+    list.should have(3).packages
+  end
+   it "should return all given to curier packages" do
+    @packages_list.packages[2].next_state
+    @packages_list.packages[1].next_state
+    list =  @packages_list.sort_by_state("Given to curier")
+    list.should have(2).packages
+  end
+    it "should return all given to curier packages" do
+    @packages_list.packages[2].next_state
+    @packages_list.packages[2].next_state
+    list =  @packages_list.sort_by_state("Delivered")
+    list.should have(1).packages
   end
 end

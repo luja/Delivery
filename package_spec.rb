@@ -24,7 +24,6 @@ describe Package do
   it "should initialize with proper type not nil" do
     @package.type.should_not  == nil
   end
-  end
   it "should change state registered into given to curier" do
     @package.next_state()
     @package.state.should == "Given to curier"

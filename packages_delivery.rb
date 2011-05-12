@@ -38,6 +38,9 @@ class Packages_delivery
     else return nil
     end
   end
+  def search_client(name, surename)
+    return @clients.get_by_name(name, surename)
+  end  
   def remove_client(name, surename)
      @clients.remove(name, surename)
   end

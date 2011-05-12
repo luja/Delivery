@@ -32,10 +32,46 @@ clients: !ruby/object:Client_list
     - 2e666k85
     name: Bernardas
     surename: Kardamavicius
+  - &id006 !ruby/object:Client 
+    address: Panevezys, Lietuva
+    id: 
+    - 89of6g66
+    name: Aurelija
+    surename: Kankyte
+  - &id005 !ruby/object:Client 
+    address: Panevezys, Tikejimo gatve 12, Lietuva
+    id: []
+
+    name: Gediminas
+    surename: Zuokas
+  - &id008 !ruby/object:Client 
+    address: Panevezys, Lietuva
+    id: 
+    - z8fxx0tk
+    name: "Aurelija "
+    surename: Kankyte
+  - &id007 !ruby/object:Client 
+    address: Telsiai, Lietuva
+    id: []
+
+    name: Karolis
+    surename: Stepanauskas
+  - &id010 !ruby/object:Client 
+    address: Holland, New Carlos
+    id: 
+    - 6ppq3z9h
+    name: Dovile
+    surename: Kurpaite
+  - &id009 !ruby/object:Client 
+    address: Lietuva, Salcininkai
+    id: []
+
+    name: Dovile
+    surename: Sagaite
 packages: !ruby/object:Packages_list 
   packages: 
   - !ruby/object:Package 
-    id: dzcdg2jc
+    id: d3zat3mu
     price: 60.5
     receiver: *id001
     sender: *id002
@@ -43,7 +79,7 @@ packages: !ruby/object:Packages_list
     type: Letter
     weight: 200
   - !ruby/object:Package 
-    id: t4eibmyj
+    id: fkxbokrt
     price: 10.7
     receiver: *id003
     sender: *id004
@@ -51,7 +87,7 @@ packages: !ruby/object:Packages_list
     type: Letter
     weight: 34
   - !ruby/object:Package 
-    id: h03do8yy
+    id: xa6eg82
     price: 54.5
     receiver: *id004
     sender: *id001
@@ -59,7 +95,7 @@ packages: !ruby/object:Packages_list
     type: Letter
     weight: 180
   - !ruby/object:Package 
-    id: 2e666k85
+    id: drs7z49m
     price: 90.5
     receiver: *id002
     sender: *id003
@@ -67,10 +103,34 @@ packages: !ruby/object:Packages_list
     type: Letter
     weight: 300
   - !ruby/object:Package 
-    id: zt2rt21j
+    id: nsv2f3ad
     price: 240.5
     receiver: *id001
     sender: *id002
     state: Registered
     type: Small package
     weight: 800
+  - !ruby/object:Package 
+    id: 7ixwdwh6
+    price: 255.5
+    receiver: *id005
+    sender: *id006
+    state: Registered
+    type: Medium package
+    weight: 850
+  - !ruby/object:Package 
+    id: 8plwz2at
+    price: 465.5
+    receiver: *id007
+    sender: *id008
+    state: Registered
+    type: Big package
+    weight: 1550
+  - !ruby/object:Package 
+    id: 49hl882e
+    price: 105.5
+    receiver: *id009
+    sender: *id010
+    state: Registered
+    type: Small package
+    weight: 350
