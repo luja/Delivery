@@ -1,0 +1,76 @@
+--- !ruby/object:Packages_delivery 
+clients: !ruby/object:Client_list 
+  client: 
+  - !ruby/object:Client 
+    address: Lieuva
+    id: []
+
+    name: Jonas
+    surename: Kuponas
+  - &id002 !ruby/object:Client 
+    address: Lieuva, Ateities g.
+    id: 
+    - 29vp3icf
+    - xactke7l
+    name: Dana
+    surename: Karkaite
+  - &id001 !ruby/object:Client 
+    address: Lieuva
+    id: 
+    - lw8he3ms
+    name: Karolina
+    surename: Grudyte
+  - &id004 !ruby/object:Client 
+    address: Lieuva
+    id: 
+    - ubsjfbdm
+    name: Sabina
+    surename: Stenaite
+  - &id003 !ruby/object:Client 
+    address: Lieuva
+    id: 
+    - 2otpnum5
+    name: Bernardas
+    surename: Kardamavicius
+packages: !ruby/object:Packages_list 
+  packages: 
+  - !ruby/object:Package 
+    id: 29vp3icf
+    price: 60.5
+    receiver: *id001
+    sender: *id002
+    state: Registered
+    type: Letter
+    weight: 200
+  - !ruby/object:Package 
+    id: ubsjfbdm
+    price: 10.7
+    receiver: *id003
+    sender: *id004
+    state: Registered
+    type: Letter
+    weight: 34
+  - !ruby/object:Package 
+    id: lw8he3ms
+    price: 54.5
+    receiver: *id004
+    sender: *id001
+    state: Registered
+    type: Letter
+    weight: 180
+  - !ruby/object:Package 
+    id: 2otpnum5
+    price: 90.5
+    receiver: *id002
+    sender: *id003
+    state: Registered
+    type: Letter
+    weight: 300
+  - !ruby/object:Package 
+    id: xactke7l
+    price: 240.5
+    receiver: *id001
+    sender: *id002
+    state: Registered
+    type: Small package
+    weight: 800

@@ -1,0 +1,75 @@
+--- !ruby/object:Packages_delivery
+clients: !ruby/object:Client_list
+  client:
+  - !ruby/object:Client
+    name: Jonas
+    surename: Kuponas
+    address: Lieuva
+    id: []
+  - &87845360 !ruby/object:Client
+    name: Dana
+    surename: Karkaite
+    address: Lieuva, Ateities g.
+    id:
+    - wgw5etj
+    - vsov3cl5
+  - &87845030 !ruby/object:Client
+    name: Karolina
+    surename: Grudyte
+    address: Lieuva
+    id:
+    - h98w0a1n
+  - &87844700 !ruby/object:Client
+    name: Sabina
+    surename: Stenaite
+    address: Lieuva
+    id:
+    - es40y941
+  - &87844370 !ruby/object:Client
+    name: Bernardas
+    surename: Kardamavicius
+    address: Lieuva
+    id:
+    - z9f17hml
+packages: !ruby/object:Packages_list
+  packages:
+  - !ruby/object:Package
+    weight: 200
+    state: Registered
+    sender: *87845360
+    receiver: *87845030
+    id: wgw5etj
+    type: Letter
+    price: 60.5
+  - !ruby/object:Package
+    weight: 34
+    state: Registered
+    sender: *87844700
+    receiver: *87844370
+    id: es40y941
+    type: Letter
+    price: 10.7
+  - !ruby/object:Package
+    weight: 180
+    state: Registered
+    sender: *87845030
+    receiver: *87844700
+    id: h98w0a1n
+    type: Letter
+    price: 54.5
+  - !ruby/object:Package
+    weight: 300
+    state: Registered
+    sender: *87844370
+    receiver: *87845360
+    id: z9f17hml
+    type: Letter
+    price: 90.5
+  - !ruby/object:Package
+    weight: 800
+    state: Registered
+    sender: *87845360
+    receiver: *87845030
+    id: vsov3cl5
+    type: Small package
+    price: 240.5

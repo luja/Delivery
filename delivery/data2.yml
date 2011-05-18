@@ -1,0 +1,75 @@
+--- !ruby/object:Packages_delivery
+clients: !ruby/object:Client_list
+  client:
+  - !ruby/object:Client
+    name: Jonas
+    surename: Kuponas
+    address: Lieuva
+    id: []
+  - &79679660 !ruby/object:Client
+    name: Dana
+    surename: Karkaite
+    address: Lieuva, Ateities g.
+    id:
+    - 6d4qdj02
+    - kqsrk7vy
+  - &79678610 !ruby/object:Client
+    name: Karolina
+    surename: Grudyte
+    address: Lieuva
+    id:
+    - sg6mz4x0
+  - &79677880 !ruby/object:Client
+    name: Sabina
+    surename: Stenaite
+    address: Lieuva
+    id:
+    - mo04za6y
+  - &79676950 !ruby/object:Client
+    name: Bernardas
+    surename: Kardamavicius
+    address: Lieuva
+    id:
+    - foyv6oqs
+packages: !ruby/object:Packages_list
+  packages:
+  - !ruby/object:Package
+    weight: 200
+    state: Registered
+    sender: *79679660
+    receiver: *79678610
+    id: 6d4qdj02
+    type: Letter
+    price: 60.5
+  - !ruby/object:Package
+    weight: 34
+    state: Registered
+    sender: *79677880
+    receiver: *79676950
+    id: mo04za6y
+    type: Letter
+    price: 10.7
+  - !ruby/object:Package
+    weight: 180
+    state: Registered
+    sender: *79678610
+    receiver: *79677880
+    id: sg6mz4x0
+    type: Letter
+    price: 54.5
+  - !ruby/object:Package
+    weight: 300
+    state: Registered
+    sender: *79676950
+    receiver: *79679660
+    id: foyv6oqs
+    type: Letter
+    price: 90.5
+  - !ruby/object:Package
+    weight: 800
+    state: Registered
+    sender: *79679660
+    receiver: *79678610
+    id: kqsrk7vy
+    type: Small package
+    price: 240.5
